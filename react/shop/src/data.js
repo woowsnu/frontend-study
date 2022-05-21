@@ -4,7 +4,8 @@ let data = [
       title : "White and Black",
       content : "Born in France",
       price : 120000,
-      img : "img/product_2.png"
+      img : "img/product_0.png",
+      alt : "seashell"
     },
   
     {
@@ -12,7 +13,8 @@ let data = [
       title : "Red Knit",
       content : "Born in Seoul",
       price : 110000,
-      img : "img/product_4.png"
+      img : "img/product_1.png",
+      alt : "seatrash"
     },
   
     {
@@ -20,7 +22,8 @@ let data = [
       title : "Grey Yordan",
       content : "Born in the States",
       price : 130000,
-      img : "img/product_3.png"
+      img : "img/product_2.png",
+      alt : "seashell"
     }
   ] 
 
