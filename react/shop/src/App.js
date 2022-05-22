@@ -10,20 +10,27 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/"
-          element={
-            <>
-              <Navbar bg="dark" variant="dark">
-                <Container>
-                  <Navbar.Brand href="#home">DDalkiki</Navbar.Brand>
-                  <Nav className="me-auto">
-                    <Link to="/"><Nav>HOME</Nav></Link>
-                    {/* <Nav.Link href="/detail">Products</Nav.Link>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">DDalkiki</Navbar.Brand>
+          <Nav className="me-auto">
+            <Link to="/">HOME</Link>
+            <Link to="/detail">HOME</Link>
+            <Link to="/about">About</Link>
+            {/* <Nav.Link href="/detail">Products</Nav.Link>
                     <Nav.Link href="/about">About</Nav.Link>
                     <Nav.Link href="#pricing">sales</Nav.Link> */}
-                  </Nav>
-                </Container>
-              </Navbar>
+          </Nav>
+        </Container>
+      </Navbar>
+      
+        <Route path="/detail" element={<div>상세페이지!</div>} />
+        <Route path="/about" element={<div>어바웃페이지</div>} />
+
+        <Route
+          path="/"
+          element={
+            <>
               <div className="main-bg">
                 <p>Sea you</p>
               </div>
@@ -38,8 +45,6 @@ function App() {
             </>
           }
         />
-        <Route path="/detail" element={<div>상세페이지!</div>} />
-        <Route path="/about" element={<div>어바웃페이지</div>} />
       </Routes>
     </div>
   );
