@@ -15,52 +15,42 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">DDalkiki</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={()=>navigate('/')}>HOME</Nav.Link>
-            <Nav.Link onClick={()=>navigate('/detail')}>Cart</Nav.Link>
+            <Nav.Link onClick={() => navigate("/")}>HOME</Nav.Link>
+            <Nav.Link onClick={() => navigate("/detail")}>Cart</Nav.Link>
             <Nav.Link to="/about">About</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
-      
+
       <Routes>
-        <Route path="/" element={
-          <>
-        <div className="main-bg">
-        <p>Sea you</p>
-      </div>
-      <div className="container">
-        <div className="row">
-          {shell.map((item, i) => {
-            console.log(item[i]);
-            return <Card shell={item} i={i} />;
-          })}
-        </div>
-      </div>
-          </>
-        }/>
-        <Route path="/detail" element={<div>상세페이지!</div>} />
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="main-bg">
+                <p>Sea you</p>
+              </div>
+              <div className="container">
+                <div className="row">
+                  {shell.map((item, i) => {
+                    console.log(item[i]);
+                    return <Card shell={item} i={i} />;
+                  })}
+                </div>
+              </div>
+            </>
+          }
+        />
+        <Route path="/detail" element={<Detail />} />
         <Route path="/about" element={<div>상세페이지!</div>}>
           <Route path="member" element={<div>상세페이지!</div>} />
           <Route path="location" element={<div>상세페이지!</div>} />
         </Route>
         <Route path="*" element={<div>404! 없는 페이지</div>} />
-
       </Routes>
-
-      
     </div>
   );
 }
-
-function About() {
-  return (
-    <div>
-      <h4>회사정보임</h4>
-
-    </div>
-  )
-}
-
 
 function Card(props) {
   return (
