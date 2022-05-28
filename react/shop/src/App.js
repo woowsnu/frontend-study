@@ -26,6 +26,7 @@ function App() {
         <Route
           path="/"
           element={
+
             <>
               <div className="main-bg">
                 <p>Sea you</p>
@@ -41,7 +42,7 @@ function App() {
             </>
           }
         />
-        <Route path="/detail" element={<Detail shell={shell}/>} />
+        <Route path="/detail/:id" element={<Detail shell={shell}/>} />
         <Route path="/about" element={<div>상세페이지!</div>}>
           <Route path="member" element={<div>상세페이지!</div>} />
           <Route path="location" element={<div>상세페이지!</div>} />
