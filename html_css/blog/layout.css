@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-div {
+div, input, textarea {
     box-sizing: border-box;
 }
 
@@ -18,7 +18,8 @@ div {
     background-size: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    /* 배경 위치 조정 */
+    background-position: center; 
     filter: brightness(120%);
     padding: 1px;
 }
@@ -75,7 +76,54 @@ div {
     border: 2px solid black;
     border-radius: 5px;
 }
-
+/* 
 input[type=text] {
     font-size: 40px;
+} */
+
+.form-background {
+    background-color: black;
+    padding: 30px;
+}
+
+.form-white {
+    background-color: white;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.w-100 {
+    width: 100%;
+    padding: 10px;
+}
+
+.w-50 {
+    width: 50%;
+    padding: 10px;
+    float: left;
+}
+
+.form-long {
+    height: 100px;
+}
+
+.yellow-btn {
+    width: 150px;
+    padding: 8px;
+    background-color: yellowgreen;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: 10px;
+    border: 1px solid #fff;
 }

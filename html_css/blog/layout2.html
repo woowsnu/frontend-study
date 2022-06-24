@@ -1,33 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="layout.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="layout.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main-background">
-        <h4 class="main-title">Nice to sea you!</h4>
-        <p class="main-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi hic sunt assumenda praesentium ipsam alias eveniet corporis.</p>
-        <button class="main-button">구매하기</button>
+      <h4 class="main-title">Nice to sea you!</h4>
+      <p class="main-content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi hic
+        sunt assumenda praesentium ipsam alias eveniet corporis.
+      </p>
+      <button class="main-button">구매하기</button>
     </div>
     <!-- width는 content의 크기를 의미함 -->
     <div class="explain-box">
-        <h3>Save the Sea!</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, labore cupiditate? Quo, natus. Atque iure suscipit culpa, tenetur deleniti a illum dicta officiis voluptatem optio, molestiae obcaecati quas eum totam.</p>
+      <h3>Save the Sea!</h3>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, labore
+        cupiditate? Quo, natus. Atque iure suscipit culpa, tenetur deleniti a
+        illum dicta officiis voluptatem optio, molestiae obcaecati quas eum
+        totam.
+      </p>
     </div>
     <form action="">
-        <!-- value 미리 채워진 값 -->
-        <input type="text" class="text-input">
-        <input type="text" name="school">
-        <select name="" id="">
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-        </select>
-        <input type="submit">
+      <!-- value 미리 채워진 값 -->
+      <input type="text" class="text-input" />
+      <input type="text" name="school" />
+      <select name="" id="">
+        <option value="1"></option>
+        <option value="2"></option>
+        <option value="3"></option>
+      </select>
+      <input type="submit" />
     </form>
-</body>
+
+    <div class="form-background">
+      <div class="form-white">
+        <form action="">
+          <div class="w-100">
+            <h3>Contact Us</h3>
+            <p>your Email</p>
+            <input class="form-input" type="email" placeholder="@email.com" />
+          </div>
+          <div class="w-50">
+              <p>Frist Name</p>
+              <input class="form-input" type="text">
+          </div>
+          <div class="w-50">
+            <p>Last Name</p>
+            <input class="form-input" type="text">
+          </div>
+          <div style="clear: both;"></div>
+        <div class="w-100">
+            <p>Message</p>
+            <textarea class="form-input form-long"></textarea>
+        </div>
+        <div class="w-100">
+        <input type="checkbox" id="subscribe">
+        <label for="subscribe">구독하기</label>
+        </div>
+        <button class="yellow-btn" type="submit">전송</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
