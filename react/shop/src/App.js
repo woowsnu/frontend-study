@@ -4,6 +4,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import "./App.css";
 import data from "./data";
 import Detail from "./routes/Detail";
+import Cart from "./routes/Cart";
 
 function App() {
   let [shell] = useState(data);
@@ -48,6 +49,7 @@ function App() {
           <Route path="location" element={<div>상세페이지!</div>} />
         </Route>
         <Route path="*" element={<div>404! 없는 페이지</div>} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );
