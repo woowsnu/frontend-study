@@ -1,6 +1,6 @@
 import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
-import Card from "./UI/Card";
+import Card from "../UI/Card";
 
 //props는 모든 속성을 받는 '객체'
 const ExpenseItem = (props) => {
