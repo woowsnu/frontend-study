@@ -5,9 +5,11 @@ import "./App.css";
 import data from "./data";
 import Detail from "./routes/Detail";
 import Cart from "./routes/Cart";
+import axios from "axios";
 
 function App() {
-  let [shell] = useState(data);
+  let [shell, setShell] = useState(data);
+  let [count, setCount] = useState();
   let navigate = useNavigate();
 
   return (
@@ -27,7 +29,6 @@ function App() {
         <Route
           path="/"
           element={
-
             <>
               <div className="main-bg">
                 <p>Sea you</p>
@@ -40,10 +41,26 @@ function App() {
                   })}
                 </div>
               </div>
+              <button
+                onClick={() => {
+
+                  axios
+                    .get("https://codingapple1.github.io/shop/data2.json")
+                    .then((result) => {
+                      let copy = [...shell, ...result.data];
+                      setShell(copy);
+                    })
+                    .catch(() => {
+                      console.log("실패함");
+                    });
+                }}
+              >
+                더보기
+              </button>
             </>
           }
         />
-        <Route path="/detail/:id" element={<Detail shell={shell}/>} />
+        <Route path="/detail/:id" element={<Detail shell={shell} />} />
         <Route path="/about" element={<div>상세페이지!</div>}>
           <Route path="member" element={<div>상세페이지!</div>} />
           <Route path="location" element={<div>상세페이지!</div>} />
