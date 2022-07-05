@@ -44,13 +44,3 @@
     transform: rotate(360deg);
   }
 }
-
-
-.start {
-  opacity: 0;  
-}
-
-.end {
-  opacity: 1;
-  transition: opacity 0.5s;
-}
