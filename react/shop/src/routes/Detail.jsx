@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Nav, Item, Link } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store/cart";
 
 const Detail = (props) => {
   useEffect(() => {
@@ -8,6 +10,17 @@ const Detail = (props) => {
       setAlert(false);
     }, 2000);
   });
+
+  const dispatch = useDispatch();
+  
+  const addCartHandler = () => {
+    const item = {
+      id: detailProduct.id,
+      name: detailProduct.title,
+      count: 1
+    }
+    dispatch(cartActions.addCart(item))
+  } 
 
   let [alert, setAlert] = useState(true);
   let { id } = useParams();
@@ -25,7 +38,7 @@ const Detail = (props) => {
           <p>{detailProduct.content}</p>
           <p>{detailProduct.price}</p>
         </div>
-        <button className="btn btn-danger">주문하기</button>
+        <button className="btn btn-danger" onClick={addCartHandler}>주문하기</button>
       </div>
       <Nav variant="tabs" defaultActiveKey="link0">
         <Nav.Item>

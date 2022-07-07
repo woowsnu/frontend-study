@@ -17,7 +17,7 @@ function App() {
           <Navbar.Brand href="#home">DDalkiki</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => navigate("/")}>HOME</Nav.Link>
-            <Nav.Link onClick={() => navigate("/detail")}>Cart</Nav.Link>
+            <Nav.Link onClick={() => navigate("/cart")}>Cart</Nav.Link>
             <Nav.Link to="/about">About</Nav.Link>
           </Nav>
         </Container>
