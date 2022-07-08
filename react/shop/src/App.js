@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Navbar, Nav, Brand } from "react-bootstrap";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import "./App.css";
@@ -7,6 +7,12 @@ import Detail from "./routes/Detail";
 import Cart from "./routes/Cart";
 
 function App() {
+
+  useEffect(()=>{
+    localStorage.setItem('watched', JSON.stringify([]))
+  },[]) 
+
+
   let [shell] = useState(data);
   let navigate = useNavigate();
 
@@ -36,7 +42,7 @@ function App() {
                 <div className="row">
                   {shell.map((item, i) => {
                     console.log(item[i]);
-                    return <Card shell={item} i={i} />;
+                    return <a href="/detail/0"><Card shell={item} i={i} /></a>;
                   })}
                 </div>
               </div>

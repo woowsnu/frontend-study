@@ -5,11 +5,11 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../store/cart";
 
 const Detail = (props) => {
-  useEffect(() => {
-    setTimeout(() => {
-      setAlert(false);
-    }, 2000);
-  });
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setAlert(false);
+  //   }, 2000);
+  // });
 
   const dispatch = useDispatch();
   
@@ -28,6 +28,16 @@ const Detail = (props) => {
     return x.id == id;
   });
   let [tab, setTab] = useState(0);
+
+  useEffect(()=>{
+    let storage = localStorage.getItem('watched')
+    storage = JSON.parse(storage)
+    storage.push(detailProduct.id)
+    console.log(storage)
+    // storage = new Set(storage)
+    // storage = Array.from(storage)
+    localStorage.setItem('watched', JSON.stringify(storage))
+  },[])
 
   return (
     <div className="container">
