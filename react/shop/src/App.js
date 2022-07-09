@@ -3,8 +3,8 @@ import { Container, Navbar, Nav, Brand } from "react-bootstrap";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import "./App.css";
 import data from "./data";
-import Detail from "./routes/Detail";
-import Cart from "./routes/Cart";
+import Detail from "./pages/productDetail/Detail";
+import Cart from "./pages/Cart"; 
 
 function App() {
 

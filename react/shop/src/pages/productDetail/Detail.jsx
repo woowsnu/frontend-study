@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Nav, Item, Link } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../store/cart";
+import { cartActions } from "../../store/cart";
 
 const Detail = (props) => {
   // useEffect(() => {
@@ -61,9 +61,6 @@ const Detail = (props) => {
           <Nav.Link eventKey="link2" onClick={()=>{setTab(2)}}>상품고시</Nav.Link>
         </Nav.Item>
       </Nav>
-      {/* {state == 0 && <div>상세설명이 들어갑니다.</div>}
-      {state == 1 && <div>상품리뷰가 들어갑니다.</div>}
-      {state == 2 && <div>상품고시 내용입니다.</div>} */}
       <TabContent tab={tab}/>
     </div>
   );
