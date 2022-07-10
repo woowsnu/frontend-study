@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Nav, Item, Link } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart";
 import styled from "styled-components";

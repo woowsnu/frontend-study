@@ -5,7 +5,12 @@ import "./App.css";
 import data from "./data";
 import Detail from "./pages/productDetail/Detail";
 import Cart from "./pages/Cart"; 
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+`
 function App() {
 
   useEffect(()=>{
@@ -18,6 +23,7 @@ function App() {
 
   return (
     <div className="App">
+      <GlobalStyle />
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">DDalkiki</Navbar.Brand>
