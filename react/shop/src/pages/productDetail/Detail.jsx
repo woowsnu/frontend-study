@@ -6,6 +6,7 @@ import styled from "styled-components";
 import fonts from "../../styles/font";
 import RelativeGoods from "./RelativeGoods";
 import Review from "./reviews/Review";
+import QnA from "./qna/QnA";
 
 const Detail = (props) => {
   // useEffect(() => {
@@ -132,7 +133,7 @@ const Detail = (props) => {
         </div>
         <div id="detail-info">상품정보!!</div>
         <Review />
-        <div id="detail-qna">문의!!!</div>
+        <QnA />
       </div>
     </Container>
   );
