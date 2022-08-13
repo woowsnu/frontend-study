@@ -1,6 +1,34 @@
 import { $ } from "./utils/dom.js";
 import store from "./store/store.js";
 
+const BASE_URL = "http://localhost:8000/api";
+
+const MenuApi = {
+  async getAllMenuByCategory(category) {
+    // then을 사용하지 않고도 response 객체를 받아와서 리턴해 줄 수 있음
+    // .then((response) => {
+    //   return response.json();
+    // })
+    // .then((data) => {
+    //   return data;
+    // });
+    const response = await fetch(`${BASE_URL}/category/${category}/menu`);
+    return response.json();
+  },
+  async createMenu(category, name) {
+    const response = await fetch(`${BASE_URL}/category/${category}/menu`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name }),
+    })
+    if (!response.ok) {
+      console.error("에러가 발생했습니다")
+    }
+  },
+};
+
 function App() {
   this.menu = {
     espresso: [],
@@ -12,11 +40,12 @@ function App() {
 
   this.currentCategory = "espresso";
 
-  this.init = () => {
-    if (store.getLocalStorage()) {
-      this.menu = store.getLocalStorage();
-    }
+  this.init = async () => {
+    this.menu[this.currentCategory] = await MenuApi.getAllMenuByCategory(
+      this.currentCategory
+    );
     render();
+    initEventListeners();
   };
 
   const render = () => {
@@ -53,19 +82,23 @@ function App() {
     $("#menu-list").innerHTML = template;
     updateMenuCount();
   };
+
   const updateMenuCount = () => {
-    const menuCount = $("#menu-list").querySelectorAll("li").length;
+    const menuCount = this.menu[this.currentCategory].length;
     $(".menu-count").innerText = `총 ${menuCount} 개`;
   };
 
-  const addMenuName = () => {
+  const addMenuName = async () => {
     if ($("#menu-name").value === "") {
       alert("메뉴를 입력해주세요.");
       return;
     }
-    const MenuName = $("#menu-name").value;
-    this.menu[this.currentCategory].push({ name: MenuName });
-    store.setLocalstorage(this.menu);
+    const menuName = $("#menu-name").value;
+
+    await MenuApi.createMenu(this.currentCategory, menuName);
+    this.menu[this.currentCategory] = await MenuApi.getAllMenuByCategory(
+      this.currentCategory
+    );
     render();
     $("#menu-name").value = "";
   };
@@ -99,44 +132,47 @@ function App() {
     render();
   };
 
-  $("#menu-list").addEventListener("click", (e) => {
-    if (e.target.classList.contains("menu-edit-button")) {
-      editMenuName(e);
-      return;
-    }
-    if (e.target.classList.contains("menu-remove-button")) {
-      removeMenuName(e);
-      return;
-    }
-    if (e.target.classList.contains("menu-sold-out-button")) {
-      soldOutMenu(e);
-      return;
-    }
-  });
+  const initEventListeners = () => {
+    $("#menu-list").addEventListener("click", (e) => {
+      if (e.target.classList.contains("menu-edit-button")) {
+        editMenuName(e);
+        return;
+      }
+      if (e.target.classList.contains("menu-remove-button")) {
+        removeMenuName(e);
+        return;
+      }
+      if (e.target.classList.contains("menu-sold-out-button")) {
+        soldOutMenu(e);
+        return;
+      }
+    });
 
-  $("#menu-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-  });
+    $("#menu-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
 
-  // 이벤트 객체를 따로 받지 않으면 click 이벤트 뒤에 함수 이름만 써줘서 주소값을 바인딩 해준다!
-  $("#menu-submit-button").addEventListener("click", addMenuName);
+    // 이벤트 객체를 따로 받지 않으면 click 이벤트 뒤에 함수 이름만 써줘서 주소값을 바인딩 해준다!
+    $("#menu-submit-button").addEventListener("click", addMenuName);
 
-  $("#menu-name").addEventListener("keypress", (e) => {
-    if (e.key !== "Enter") {
-      return;
-    }
-    addMenuName();
-  });
+    $("#menu-name").addEventListener("keypress", (e) => {
+      if (e.key !== "Enter") {
+        return;
+      }
+      addMenuName();
+    });
 
-  $("nav").addEventListener("click", (e) => {
-    const isCategoryButton = e.target.classList.contains("cafe-category-name");
-    if (isCategoryButton) {
-      const categoryName = e.target.dataset.categoryName;
-      this.currentCategory = categoryName;
-      $("#category-title").innerText = `${e.target.innerText} 메뉴 관리`;
-    }
-    render();
-  });
+    $("nav").addEventListener("click", (e) => {
+      const isCategoryButton =
+        e.target.classList.contains("cafe-category-name");
+      if (isCategoryButton) {
+        const categoryName = e.target.dataset.categoryName;
+        this.currentCategory = categoryName;
+        $("#category-title").innerText = `${e.target.innerText} 메뉴 관리`;
+      }
+      render();
+    });
+  };
 }
 
 const app = new App();
