@@ -1,0 +1,90 @@
+.recent-order-area {
+  display: flex;
+  margin-top: 16px;
+  padding: 18px 0;
+  border-radius: 2px;
+  background: #fff;
+
+  .recent-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.42;
+    border-right: 1px solid $booking-color-bg102;
+    .ico-clock {
+      margin-bottom: 4px;
+    }
+  }
+
+  .recent-menu-list {
+    display: flex;
+  }
+
+  .recent-menu-item {
+    box-sizing: content-box;
+    padding-left: 16px;
+    width: 80px;
+    text-align: center;
+    &.is-ordered {
+      padding-right: 16px;
+      border-right: 1px solid $booking-color-bg102;
+    }
+    &:last-child {
+      padding-right: $m-padding;
+    }
+
+    .menu-img-area {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      border: 1px solid $booking-color-bg149;
+      border-radius: 100%;
+      background-color: rgba(0, 0, 0, 0.01);
+    }
+
+    .badge-popular {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 5px;
+      border-radius: 10px;
+      line-height: 16px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      background-color: #ff61a7;
+    }
+
+    .menu-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+    }
+
+    .badge-cart {
+      width: 40%;
+      height: 40%;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 36px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 100%;
+      background-color: #fff;
+    }
+
+    .menu-name {
+        font-weight: 700;
+    }
+
+    .menu-price {
+        font-weight: 700;
+    }
+  }
+}

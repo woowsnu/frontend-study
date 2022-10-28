@@ -1,0 +1,63 @@
+.dimmed-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+}
+
+.order-type-popup {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem 0 2.5rem 0;
+    background-color: #fff;
+    text-align: center;
+    border-radius:1rem 1rem 0 0;
+    z-index: 10000;
+
+    .title {
+        font-size: map-get($font-size, md);
+        font-weight: bold;
+        letter-spacing: -0.3px;
+        color: $booking-color-text1;
+    }
+
+    .type-list {
+        display: flex;
+        margin-top: 2rem;
+    }
+
+    .type-item {
+        flex: 1;
+        & + .type-item {
+            border-left: 1px solid $booking-color-border1;
+        }
+    }
+
+    .icon {
+        width: 6.25rem;
+        height: auto;
+        color: $booking-color-bg118;
+    }
+
+    .desc {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        font-weight: 600;
+    }
+
+    .btn-selection {
+        display: inline-block;
+        padding: 0.4rem 1.1rem;
+        margin-top: 0.6rem;
+        border-radius: 1.75rem;
+        color: #fff;
+        font-weight: bold;
+        background-color: $booking-color-bg189;
+    }
+}

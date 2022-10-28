@@ -1,0 +1,76 @@
+.haeder-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  background-color: $booking-color-bg183;
+  z-index: 5000;
+
+  .place-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $place-header-height;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .link-back {
+    display: flex;
+  }
+
+  .my-orders {
+    padding-right: $m-padding;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .place-tab {
+    display: flex;
+    height: $place-tab-height;
+    padding-left: 0.5rem;
+    background-color: darken($booking-color-bg183, $amount: 3);
+  }
+
+  .tab-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+    width: 100%;
+  }
+
+  .tab {
+    flex: 1;
+    padding: 0 0.7rem;
+    text-align: center;
+    opacity: 0.7;
+    &.is-active {
+      font-weight: 700;
+      opacity: 1;
+      .txt::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        left: 0;
+        right: 0;
+        height: 0.2rem;
+        background-color: #fff;
+      }
+    }
+
+    .txt {
+      position: relative;
+      display: inline-block;
+      padding: 0 0.1rem;
+      line-height: $place-tab-height;
+    }
+  }
+}
