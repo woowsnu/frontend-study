@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     padding: 8px;
     font-size: 12px;
     font-weight: 700;
@@ -66,14 +67,12 @@
     }
 
     .badge-cart {
-      width: 40%;
-      height: 40%;
-      text-align: center;
-      vertical-align: middle;
-      line-height: 36px;
       position: absolute;
       right: 0;
       bottom: 0;
+      width: 40%;
+      height: 40%;
+      padding: 6px;
       border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 100%;
       background-color: #fff;
@@ -81,10 +80,16 @@
 
     .menu-name {
         font-weight: 700;
+        font-size: 14px;
+        margin-top: 8px;
+        @include ellipse;
     }
 
     .menu-price {
-        font-weight: 700;
+        font-weight: 600;
+        font-size: 13px;
+        color: $point-color;
+        @include ellipse;
     }
   }
 }
