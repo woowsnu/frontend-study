@@ -1,6 +1,6 @@
 .order-content {
     margin: -40px 10px 0;
-
+    
     .common-inner {
         position: relative;
         background-color: #fff;
@@ -21,6 +21,7 @@
         &::after {
             bottom: -5px;
             transform: rotate(180deg);
+            
         }
     }
 
@@ -46,7 +47,7 @@
         .desc {
             margin-top: 8px;
             line-height: 1.2;
-            font-style: 14px;
+            font-size: 14px;
             font-weight: 500;
             color: $booking-color-text6;
         }
@@ -61,7 +62,7 @@
 
     .order-content-body {
         border-top: 1px dashed $booking-color-border147;
-    
+
         .no-order {
             padding: 70px 0;
             text-align: center;
