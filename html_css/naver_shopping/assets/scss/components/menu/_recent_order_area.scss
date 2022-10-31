@@ -27,15 +27,16 @@
 
   .recent-menu-item {
     box-sizing: content-box;
-    padding-left: 16px;
+    position: relative;
+    padding-right: 16px;
     width: 80px;
     text-align: center;
     &.is-ordered {
-      padding-right: 16px;
+      padding-left: 16px;
       border-right: 1px solid $booking-color-bg102;
-    }
-    &:last-child {
-      padding-right: $m-padding;
+      &+.recent-menu-item {
+        padding-left: 16px;
+      }
     }
 
     .menu-img-area {
@@ -68,14 +69,18 @@
 
     .badge-cart {
       position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 40%;
-      height: 40%;
+      right: 16px;
+      bottom: 43px;
+      display: flex;
       padding: 6px;
       border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 100%;
       background-color: #fff;
+    }
+
+    .ico-cart {
+      width: 16px;
+      height: 16px;
     }
 
     .menu-name {
